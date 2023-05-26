@@ -16,11 +16,14 @@
     "@storybook/blocks": "^7.0.17",
     "@storybook/web-components": "^7.0.17",
     "@storybook/web-components-vite": "^7.0.17",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
     "lit": "^2.7.4",
     "lit-html": "^2.7.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "^7.0.17",
+    "typescript": "^5.0.4",
     "vite": "^4.0.0"
   },
   "dependencies": {}
