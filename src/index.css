@@ -1,0 +1,7 @@
+@import './global/css/tokens';
+
+@layer reset, defaults, components;
+
+@import './global/css/reset' layer(reset);
+@import './global/css/defaults' layer(defaults);
+@import './components' layer(components);

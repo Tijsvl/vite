@@ -1,0 +1,9 @@
+title: "NCTV"
+type: "main"
+assets:
+  - path: "rel/stylesheet/general"
+    location: "head"
+    type: :link_stylesheet
+  - path: "js/site"
+    location: "body"
+    type: :script

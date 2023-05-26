@@ -1,0 +1,19 @@
+.page {
+  padding-block: clamp(2.375rem, 5.46875vw, 3rem);
+}
+
+.page--article {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 48rem) {
+  .page--article {
+    grid-template-columns: 1fr 33.3%;
+    gap: 2.5rem;
+  }
+
+  .related {
+    grid-column: span 2;
+  }
+}
