@@ -1,5 +1,7 @@
 module.exports = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  "stories": [
+    "../src/www/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -15,7 +17,7 @@ module.exports = {
   ],
   staticDirs: ['../assets', { from: '../public/rel/fonts', to: 'fonts' }, { from: '../public/rel/icons', to: 'icons' }],
   framework: {
-    name: '@storybook/web-components-vite',
+    name: '@storybook/react-vite',
     options: {}
   },
   docs: {

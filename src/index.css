@@ -1,6 +1,8 @@
 @import './global/css/tokens/index.scss';
 
-@layer reset, defaults, components;
+@layer reset,
+defaults,
+www;
 
 @import './global/css/reset/index.scss' layer(reset);
 @import './global/css/defaults/index.scss' layer(defaults);
