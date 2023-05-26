@@ -1,24 +1,35 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 
-// const www = false
-// const designPath = www ? 'www' : 'mijn'
-const designPath = ''
-
+const designPath = 'www';
 export default defineConfig({
   build: {
-    outDir: `dist/${designPath}`,
+    outDir: `dist`,
     rollupOptions: {
       input: {
-        bundle: `src/${designPath}/index.js`,
-        styles: `src/${designPath}/index.css`
+        mijnJs: `src/mijn/index.js`,
+        mijnStyles: `src/mijn/index.scss`,
+        wwwJs: `src/www/index.js`,
+        wwwStyles: 'src/www/index.scss'
       },
       output: {
         entryFileNames: (chunkInfo) => {
-          return chunkInfo.name === 'bundle' ? `js/site.js` : `[name].js`
+          switch (chunkInfo.name) {
+            case 'mijnJs': return 'mijn/js/site.js'
+            case 'wwwJs': return 'www/js/site.js'
+            default: return '[name].js'
+          }
         },
+
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'index.css') return `rel/stylesheet/general.css`
+
+          if (assetInfo.name.endsWith('index.css')) {
+            if (assetInfo.name.split('/').find((val) => val === 'mijn')) {
+              return 'mijn/rel/stylesheet/general.css';
+            } else if (assetInfo.name.split('/').find((val) => val === 'www')) {
+              return 'www/rel/stylesheet/general.css';
+            }
+          }
           return assetInfo.name
         }
       }

@@ -1,2 +1,2 @@
-import './components';
-import './www/components'
+import './www/index'
+import './mijn/index';
