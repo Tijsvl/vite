@@ -22,6 +22,7 @@
     "lit-html": "^2.7.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.62.1",
     "storybook": "^7.0.17",
     "typescript": "^5.0.4",
     "vite": "^4.0.0"
