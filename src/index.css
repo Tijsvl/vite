@@ -6,4 +6,4 @@ www;
 
 @import './global/css/reset/index.scss' layer(reset);
 @import './global/css/defaults/index.scss' layer(defaults);
-@import './components/index.scss' layer(components);
+@import './www/index.scss' layer(www);
