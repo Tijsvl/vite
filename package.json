@@ -25,6 +25,7 @@
     "storybook": "^7.0.17",
     "typescript": "^5.0.4",
     "vite": "^4.0.0",
-    "vite-plugin-static-copy": "^0.16.0"
+    "vite-plugin-static-copy": "^0.16.0",
+    "vite-plugin-zip-file": "^2.0.0"
   }
 }
