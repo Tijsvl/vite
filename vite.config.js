@@ -1,16 +1,31 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-const designPath = 'www';
 export default defineConfig({
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'public/rel',
+          dest: 'mijn'
+        },
+        {
+          src: 'public/rel',
+          dest: 'www'
+        }
+      ]
+    })
+  ],
   build: {
     outDir: `dist`,
+    copyPublicDir: false, // viteStaticCopy already does this.
     rollupOptions: {
       input: {
         mijnJs: `src/mijn/index.js`,
-        mijnStyles: `src/mijn/index.scss`,
+        mijnStyles: `src/mijn/mijn_index.scss`,
         wwwJs: `src/www/index.js`,
-        wwwStyles: 'src/www/index.scss'
+        wwwStyles: 'src/www/www_index.scss'
       },
       output: {
         entryFileNames: (chunkInfo) => {
@@ -23,12 +38,10 @@ export default defineConfig({
 
         assetFileNames: (assetInfo) => {
 
-          if (assetInfo.name.endsWith('index.css')) {
-            if (assetInfo.name.split('/').find((val) => val === 'mijn')) {
-              return 'mijn/rel/stylesheet/general.css';
-            } else if (assetInfo.name.split('/').find((val) => val === 'www')) {
-              return 'www/rel/stylesheet/general.css';
-            }
+          if (assetInfo.name === 'mijn_index.css') {
+            return 'mijn/rel/stylesheet/general.css'
+          } else if (assetInfo.name === 'www_index.css') {
+            return 'www/rel/stylesheet/general.css'
           }
           return assetInfo.name
         }
@@ -37,7 +50,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      components: path.join(__dirname, `src/${designPath}/components/`)
+      wwwComponents: path.join(__dirname, `src/www/components/`),
+      mijnComponents: path.join(__dirname, `src/mijn/components/`)
     }
   }
 })
