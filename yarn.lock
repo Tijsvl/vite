@@ -4269,7 +4269,7 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jszip@^3.10.1:
+jszip@^3.7.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.10.1.tgz#34aee70eb18ea1faec2f589208a157d1feb091c2"
   integrity sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==
@@ -6034,12 +6034,12 @@ vite-plugin-static-copy@^0.16.0:
     fs-extra "^11.1.0"
     picocolors "^1.0.0"
 
-vite-plugin-zip-file@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-zip-file/-/vite-plugin-zip-file-2.0.0.tgz#3a525cb553021358346ebd10605f4e27097e5a0b"
-  integrity sha512-1fThD62shDvCONs2qetRR5eyujbhwd8NdH5xgpnq4NaHcD39Pap5OgQ+IHmMWtOv/uZW9lRGCdddEfLJfiKjog==
+vite-plugin-zip-pack@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vite-plugin-zip-pack/-/vite-plugin-zip-pack-1.0.5.tgz#6c2ef0a02cdfc9c7a9c785a4310ec7024695c91f"
+  integrity sha512-AY6F3GJL///Dc3d7fQhalJvWb08e0oIATVqHLwDAiK2/S1NCxbAFXfT4m2V+LtJRjHrRkHa0zbZvAI6/lb6vTQ==
   dependencies:
-    jszip "^3.10.1"
+    jszip "^3.7.1"
 
 vite@^4.0.0:
   version "4.3.9"

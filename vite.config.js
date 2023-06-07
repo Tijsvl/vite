@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { viteZip } from 'vite-plugin-zip-file'
+import zipPack from 'vite-plugin-zip-pack'
 import { env } from 'process'
 
 export default defineConfig({
@@ -56,15 +56,15 @@ export default defineConfig({
         }
       ]
     }),
-    viteZip({
-      folderPath: path.resolve(__dirname, 'dist/mijn'),
-      outPath: path.resolve(__dirname, 'dist'),
-      enabled: env.NODE_ENV === 'production' ? true : false
+    zipPack({
+      inDir: 'dist/mijn',
+      outDir: 'dist',
+      outFileName: 'mijn.zip',
     }),
-    viteZip({
-      folderPath: path.resolve(__dirname, 'dist/www'),
-      outPath: path.resolve(__dirname, 'dist'),
-      enabled: env.NODE_ENV === 'production' ? true : false
+    zipPack({
+      inDir: 'dist/www',
+      outDir: 'dist',
+      outFileName: 'www.zip',
     })
 
 
