@@ -1,1 +1,1 @@
-import './backtotop'
+import './backtotop/BackToTop.stories'

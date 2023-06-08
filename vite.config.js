@@ -1,24 +1,36 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-
-// const www = false
-// const designPath = www ? 'www' : 'mijn'
-const designPath = ''
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import zipPack from 'vite-plugin-zip-pack'
+import { env } from 'process'
 
 export default defineConfig({
   build: {
-    outDir: `dist/${designPath}`,
+    outDir: `dist`,
+    copyPublicDir: false, // viteStaticCopy already does this.
     rollupOptions: {
       input: {
-        bundle: `src/${designPath}/index.js`,
-        styles: `src/${designPath}/index.css`
+        mijnJs: `src/mijn/index.js`,
+        mijnStyles: `src/mijn/mijn_index.scss`,
+        wwwJs: `src/www/index.js`,
+        wwwStyles: 'src/www/www_index.scss'
       },
       output: {
         entryFileNames: (chunkInfo) => {
-          return chunkInfo.name === 'bundle' ? `js/site.js` : `[name].js`
+          switch (chunkInfo.name) {
+            case 'mijnJs': return 'mijn/js/site.js'
+            case 'wwwJs': return 'www/js/site.js'
+            default: return '[name].js'
+          }
         },
+
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'index.css') return `rel/stylesheet/general.css`
+
+          if (assetInfo.name === 'mijn_index.css') {
+            return 'mijn/rel/stylesheet/general.css'
+          } else if (assetInfo.name === 'www_index.css') {
+            return 'www/rel/stylesheet/general.css'
+          }
           return assetInfo.name
         }
       }
@@ -26,7 +38,36 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      components: path.join(__dirname, `src/${designPath}/components/`)
+      wwwComponents: path.join(__dirname, `src/www/components/`),
+      mijnComponents: path.join(__dirname, `src/mijn/components/`)
     }
-  }
+  },
+
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'public/rel',
+          dest: 'mijn'
+        },
+        {
+          src: 'public/rel',
+          dest: 'www'
+        }
+      ]
+    }),
+    zipPack({
+      inDir: 'dist/mijn',
+      outDir: 'dist',
+      outFileName: 'mijn.zip',
+    }),
+    zipPack({
+      inDir: 'dist/www',
+      outDir: 'dist',
+      outFileName: 'www.zip',
+    })
+
+
+  ],
+
 })
