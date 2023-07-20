@@ -12,7 +12,7 @@ export default defineConfig({
         mijnJs: `src/mijn/index.js`,
         mijnStyles: `src/mijn/mijn_index.scss`,
         wwwJs: `src/www/index.js`,
-        wwwStyles: "src/www/www_index.scss",
+        wwwStyles: `src/www/www_index.scss`,
         defaultJs: `src/default/index.js`,
         defaultStyles: `src/default/default_index.scss`,
       },
@@ -31,6 +31,7 @@ export default defineConfig({
         },
 
         assetFileNames: (assetInfo) => {
+          console.log(assetInfo)
           if (assetInfo.name === "mijn_index.css") {
             return "mijn/rel/stylesheet/general.css";
           } else if (assetInfo.name === "www_index.css") {
@@ -47,6 +48,7 @@ export default defineConfig({
     alias: {
       wwwComponents: path.join(__dirname, `src/www/components/`),
       mijnComponents: path.join(__dirname, `src/mijn/components/`),
+      defaultComponents: path.join(__dirname, `src/default/components/`),
     },
   },
 
@@ -61,6 +63,10 @@ export default defineConfig({
           src: "public/rel",
           dest: "www",
         },
+        {
+          src: "public/rel",
+          dest: "default",
+        }
       ],
     }),
     zipPack({
@@ -72,6 +78,11 @@ export default defineConfig({
       inDir: "dist/www",
       outDir: "dist",
       outFileName: "www.zip",
+    }),
+    zipPack({
+      inDir: "dist/default",
+      outDir: "dist",
+      outFileName: "default.zip",
     }),
   ],
 });
