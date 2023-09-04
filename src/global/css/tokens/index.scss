@@ -1,4 +1,23 @@
 :root {
   --c-black: #000000;
   --c-white: #ffffff;
+  --c-white-hover: #e8e8e8;
+
+  --c-primary: #0588f0;
+  --c-primary-hover: #073dac;
+
+  --c-grey-2: #e8e8e8;
+  --c-grey-5: #a2aaad;
+  --c-grey-6: #8f8f8f;
+  --c-grey-7: #767676;
+
+  --c-orange-4: #ff6200;
+  --c-orange-4-hover: #d56d1c;
+
+  // FONTS
+  --f-scala: 'ScalaSansRegular', var(--f-system);
+  --f-scala-bold: 'ScalaSansBold', var(--f-system);
+
+  // ICONS
+  --i-arrow: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxOCAxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UGFnZSAxIENvcHk8L3RpdGxlPjxwYXRoIGQ9Ik05IDBsOSA5LjE1LTkgOS4xNS0xLjYtMS42IDYuMy02LjRIMFY4aDEzLjdMNy40IDEuNiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+);
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 interface IProps {
-  innerText?: string;
+  innerText?: string
 }
 
 export const BackToTop = ({ innerText }: IProps) => {
@@ -12,26 +12,24 @@ export const BackToTop = ({ innerText }: IProps) => {
       onClick={() => {
         window.scroll({
           top: 0,
-          behavior: 'smooth',
-        });
+          behavior: 'smooth'
+        })
       }}
     >
-      <span className="backtotopbutton__text">
-        {innerText ? innerText : 'Scroll naar boven'}
-      </span>
+      <span className="backtotopbutton__text">{innerText || 'Scroll naar boven'}</span>
       <span className="backtotopbutton__icon" />
     </button>
-  );
-};
+  )
+}
 
 export default {
   title: 'www/BackToTop',
   tags: ['autodocs'],
   args: {
-    innerText: 'innerText prop wordt bepaald door Storybook \'args\'!'
+    innerText: ''
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: 'fullscreen'
   },
   render: (args) => BackToTop(args)
 }

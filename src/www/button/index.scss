@@ -1,0 +1,99 @@
+@import '../../global/css/defaults/index.scss';
+@import '../../global/css/reset/index.scss';
+@import '../../global/css/tokens/index.scss';
+
+.button {
+  --text-color: var(--c-white);
+  --border-color: transparent;
+  --background-color: var(--c-primary);
+  --background-color-hover: var(--c-primary-hover);
+  --size: auto;
+  --icon-color: currentColor;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 1.9rem;
+  font-family: inherit;
+  min-height: 5rem;
+  min-width: var(--size);
+  padding-block: 1.3rem;
+  border: 0;
+  border-radius: 0.5rem;
+  outline: 1px solid var(--border-color);
+  outline-offset: -1px;
+  padding-inline: 2rem;
+  cursor: pointer;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  &:hover {
+    background-color: var(--background-color-hover);
+  }
+}
+
+// COLOR VARIANTS
+.button--orange {
+  --background-color: var(--c-orange-4);
+  --background-color-hover: var(--c-orange-4-hover);
+}
+
+.button--white {
+  --text-color: var(--c-grey-6);
+  --border-color: var(--c-grey-2);
+  --background-color: var(--c-white);
+  --background-color-hover: var(--c-white-hover);
+}
+
+.button--link {
+  --text-color: var(--c-primary);
+  --border-color: var(--c-primary);
+  --background-color: var(--c-white);
+  --background-color-hover: var(--c-white-hover);
+}
+
+.button[disabled] {
+  --background-color: var(--c-grey-2);
+  --text-color: var(--c-grey-7);
+  --border-color: transparent;
+  cursor: not-allowed;
+}
+
+.button[readonly] {
+  --background-color: var(--c-grey-2);
+  --text-color: var(--c-grey-7);
+  --border-color: var(--c-grey-5);
+  cursor: not-allowed;
+}
+
+// SIZE VARIANTS
+.button--medium {
+  --size: 13rem;
+}
+
+.button--large {
+  --size: 24rem;
+}
+
+// ARROW VARIANTS
+.button--arrow::after {
+  content: '';
+  height: 1.5rem;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  -webkit-mask-image: var(--i-arrow);
+  mask-image: var(--i-arrow);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: var(--icon-color);
+  transform: rotate(0);
+}
+
+.button--external::after {
+  transform: rotate(-45deg);
+}
